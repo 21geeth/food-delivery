@@ -4,22 +4,24 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-
-            <img src="{{object.image.url}}" class="card-img-top" alt="...">
-        </div>
-        <div class="col-md-6">
+        {% for product in products %}
+        <div class="col-md-3 d-flex align-items-stretch"> <!-- 4 columns per row -->
             <div class="card">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><b>Product : {{object.name}}</b></li>
-                <li class="list-group-item"><b> Description </b> {{object.description}}</li>
-                <li class="list-group-item"><b> Price </b> {{object.price}}/-</li>
-                  <li class="list-group-item"><a href="{% url 'Product_order_create' object.slug %}" class="btn btn-primary">Buy Now</a></li>
-              </ul>
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Price:</b> {{ product.price }}/-</li>
+                </ul>
+                <div class="card-footer">
+                    <a href="{% url 'Product_order_create' product.slug %}" class="btn btn-primary">Buy Now</a>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
-
 
 {% endblock %}

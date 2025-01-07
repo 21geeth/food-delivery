@@ -19,6 +19,13 @@
   color: #fff;
   text-decoration: none;
 }
+.container .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 
 /*
  * Dummy devices (replace them with your own or something else entirely!)
@@ -79,3 +86,5 @@
 }
 
 .overflow-hidden { overflow: hidden; }
+
+
